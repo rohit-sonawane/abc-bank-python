@@ -1,9 +1,7 @@
 from nose.tools import assert_equals
-
 from account import Account, CHECKING, MAXI_SAVINGS, SAVINGS
 from bank import Bank
 from customer import Customer
-
 
 def test_customer_summary():
     bank = Bank()

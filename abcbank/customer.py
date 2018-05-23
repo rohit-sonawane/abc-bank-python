@@ -50,6 +50,22 @@ class Customer:
         else:
             return "N/A"
 
+    def transfer(self, from_acc, to_acc, transfer_amount):
+        result = False
+        try:
+            if len(self.accounts) > 1:
+                if from_acc.sumTransactions() >= transfer_amount:
+                    from_acc.withdraw(transfer_amount)
+                    to_acc.deposit(transfer_amount)
+                    result = True
+                else:
+                    raise ValueError("Amount in the from account is not sufficient")
+            else:
+                raise ValueError("More than one account needed for transfer")
+        except Exception as error:
+            print "ERROR : " + str(error)
+        return result
+
 
 def _toDollars(number):
     return "${:1.2f}".format(number)

@@ -18,7 +18,6 @@ class Bank:
         return total
     def getFirstCustomer(self):
         try:
-            self.customers = None
             return self.customers[0].name
         except Exception as e:
             print(e)
